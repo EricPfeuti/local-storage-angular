@@ -37,7 +37,7 @@ export class ContatosService {
 
   async atualizarContato(indice: number, contato: Contato): Promise<void> {
     const contatos = await this.obterContatos();
-    contatos.splice(indice, 1);
+    contatos[indice] = contato;
     await this.storage.set('contatos', contatos);
   }
 
